@@ -8,15 +8,19 @@ function App() {
   }
   const addvluetoarr = () => {
     axios.post("http://localhost:4000/datasent",{newvalue:value})
-
     setvalue("")
   }
   useEffect(() => {
     axios.get("http://localhost:4000/data").then((data) => {
       setarr(data.data)
-      console.log(data.data);
+      // console.log(data.data);
     },[])
   })
+  function deletedbvalue(props){
+    var dbindex=props.itm.itm.name
+    // console.log(dbindex);
+    axios.post("http://localhost:4000/delete",{delval:dbindex})
+  }
   return (
 
     <div>
@@ -26,7 +30,9 @@ function App() {
         {
           arr.map((itm, index) => {
             return (
-              <h1 key={index}>{itm.name}</h1>
+              <div key={index} style={{display:"flex"}}>
+                <h1 >{itm.name}</h1><button onClick={()=>{deletedbvalue({index:{index},itm:{itm}})}} style={{height:"fit-content"}}>Delet</button>
+              </div>
             )
           })
         }
