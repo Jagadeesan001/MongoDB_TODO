@@ -24,6 +24,7 @@ function App() {
   return (
 
     <div>
+    <input type="number" /> <button>demo</button>
       <input value={value} onChange={handlevalue} type="text" />
       <button onClick={addvluetoarr}>Add..</button>
       <ul>
