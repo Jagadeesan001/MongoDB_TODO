@@ -24,9 +24,10 @@ app.post("/datasent", (req, res) => {
     name.save().then(() => console.log("db added..........."))
 })
 app.post("/delete", (req, res) => {
-    var dbdel = req.body
-    console.log(dbdel);
-    stdlist.deleteOne({ name: dbdel })
+    var dbdel = req.body.delval
+    // console.log(dbdel);
+    stdlist.deleteOne({ name: dbdel }).then(()=>{console.log("db Deleted...")})
+    .catch((err)=>console.log(err))
 })
 
 
