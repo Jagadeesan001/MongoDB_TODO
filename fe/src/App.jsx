@@ -22,24 +22,26 @@ function App() {
     axios.post("http://localhost:4000/delete", { delval: dbindex })
   }
   return (
+    <>
     <div className="py-8">
-      <div className="">
-        <input value={value} onChange={handlevalue} type="text" />
-        <button onClick={addvluetoarr} className="text-white bg-black rounded">Add..</button>
+      <div className="flex gap-4">
+        <input value={value} onChange={handlevalue} type="text" className="inputBox"/>
+        <button onClick={addvluetoarr} className="text-white w-16 bg-black rounded">Add..</button>
       </div>
 
       <ul  className="text-white">
         {
           arr.map((itm, index) => {
             return (
-              <div key={index} style={{ display: "flex" }} className="flex justify-between bold">
-                <h1 >{itm.name}</h1><button onClick={() => { deletedbvalue({ index: { index }, itm: { itm } }) }} style={{ height: "fit-content" }}>Delet</button>
+              <div key={index} style={{ display: "flex" }} className="flex justify-between bold item_show_container">
+                <h1 >{itm.name}</h1><button onClick={() => { deletedbvalue({ index: { index }, itm: { itm } }) }} style={{ height: "fit-content" }} className="delete_BTN">Delete</button>
               </div>
             )
           })
         }
       </ul>
     </div>
+    </>
   )
 }
 export default App

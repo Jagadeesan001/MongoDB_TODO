@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.inputBox{
+    border-radius: 25px;
+    padding: 6px;
+    border-color: cadetblue;
+    /* background-color: transparent; */
+}
+.delete_BTN{
+    background-color: red;
+    border-radius: 16px;
+    padding: 5px;
+}
+.item_show_container{
+    margin-top: 8px;
+    padding: 4px;
+    text-decoration: underline;
+}
